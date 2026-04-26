@@ -20,7 +20,6 @@ jobs:
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.6.0
 
-
   post_next_step_content:
     name: Post next step content
     needs: [find_exercise]
@@ -80,7 +79,7 @@ jobs:
 
       - name: Disable current workflow and enable next one
         run: |
-          gh workflow disable "${{github.workflow}}"
+          gh workflow disable "2-step.yml"
           gh workflow enable "3-step.yml"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
